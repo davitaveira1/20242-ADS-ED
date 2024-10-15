@@ -48,17 +48,32 @@ public class Vetor {
     void qtdElementosLista(){
         System.out.println("Qtd Elementos da Lista: "+qtdAlunosLista);
     }
+    
+    boolean verificarSeAlunoExiste(Aluno a){
+        for(int i=0;i<qtdAlunosLista;i++){
+            if(alunos[i].equals(a)){
+                return true;
+            }            
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         Vetor v = new Vetor();
         Aluno a1 = new Aluno("Davi");
         Aluno a2 = new Aluno("Daniel");
+        Aluno a3 = new Aluno("Lucas");
         //v.inserirFimLista(a);
         //v.imprimirLista();
         v.inserirFimListaV2(a1);
         v.inserirFimListaV2(a2);
         v.imprimirV2();
         v.qtdElementosLista();
+        if(v.verificarSeAlunoExiste(a3)){
+            System.out.println("Aluno existe!");
+        }else{
+            System.out.println("Aluno não existe!");
+        }
     }
 
 }
