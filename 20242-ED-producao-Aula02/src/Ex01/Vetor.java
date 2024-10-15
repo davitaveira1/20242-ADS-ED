@@ -57,6 +57,18 @@ public class Vetor {
         }
         return false;
     }
+    
+    boolean validarPosicao(int pos){
+        return pos >=0 && pos < qtdAlunosLista;
+    }
+    
+    Aluno buscarAlunoPorPosicao(int pos){
+        if(validarPosicao(pos)){
+            return alunos[pos];
+        }else{
+            throw new IllegalArgumentException("Posição inválida!!");
+        }
+    }
 
     public static void main(String[] args) {
         Vetor v = new Vetor();
@@ -67,13 +79,24 @@ public class Vetor {
         //v.imprimirLista();
         v.inserirFimListaV2(a1);
         v.inserirFimListaV2(a2);
+        
         v.imprimirV2();
+        /*
         v.qtdElementosLista();
         if(v.verificarSeAlunoExiste(a3)){
             System.out.println("Aluno existe!");
         }else{
             System.out.println("Aluno não existe!");
         }
+        */
+        System.out.println("======");
+        try {
+           System.out.println(v.buscarAlunoPorPosicao(-1).nome); 
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
     }
 
 }
