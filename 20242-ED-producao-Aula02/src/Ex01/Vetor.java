@@ -11,7 +11,7 @@ package Ex01;
 public class Vetor {
 
     Aluno[] alunos = new Aluno[5];
-    int qtdAlunosLista=0;
+    int qtdAlunosLista = 0;
 
     void inserirFimLista(Aluno a) {
         for (int i = 0; i < alunos.length; i++) {
@@ -21,9 +21,9 @@ public class Vetor {
             }
         }
     }
-    
-    void inserirFimListaV2(Aluno a){
-        alunos[qtdAlunosLista]=a;
+
+    void inserirFimListaV2(Aluno a) {
+        alunos[qtdAlunosLista] = a;
         qtdAlunosLista++;
     }
 
@@ -34,83 +34,88 @@ public class Vetor {
             }
         }
     }
-    
-    void imprimirV2(){
-        if(qtdAlunosLista==0){
+
+    void imprimirV2() {
+        if (qtdAlunosLista == 0) {
             System.out.println("Lista vazia!");
-        }else{
-            for(int i=0;i<qtdAlunosLista;i++){
+        } else {
+            for (int i = 0; i < qtdAlunosLista; i++) {
                 System.out.println(alunos[i].nome);
             }
         }
     }
-    
-    void qtdElementosLista(){
-        System.out.println("Qtd Elementos da Lista: "+qtdAlunosLista);
+
+    void qtdElementosLista() {
+        System.out.println("Qtd Elementos da Lista: " + qtdAlunosLista);
     }
-    
-    boolean verificarSeAlunoExiste(Aluno a){
-        for(int i=0;i<qtdAlunosLista;i++){
-            if(alunos[i].equals(a)){
+
+    boolean verificarSeAlunoExiste(Aluno a) {
+        for (int i = 0; i < qtdAlunosLista; i++) {
+            if (alunos[i].equals(a)) {
                 return true;
-            }            
+            }
         }
         return false;
     }
-    
-    boolean validarPosicao(int pos){
-        return pos >=0 && pos < qtdAlunosLista;
+
+    boolean validarPosicao(int pos) {
+        return pos >= 0 && pos < qtdAlunosLista;
     }
-    
-    Aluno buscarAlunoPorPosicao(int pos){
-        if(validarPosicao(pos)){
+
+    Aluno buscarAlunoPorPosicao(int pos) {
+        if (validarPosicao(pos)) {
             return alunos[pos];
-        }else{
+        } else {
             throw new IllegalArgumentException("Posição inválida!!");
         }
     }
-    
-    boolean validarPosicaoAdicionarAluno(int pos){
-        if(pos < 0 || pos > qtdAlunosLista || qtdAlunosLista >= alunos.length){
+
+    boolean validarPosicaoAdicionarAluno(int pos) {
+        if (pos < 0 || pos > qtdAlunosLista || qtdAlunosLista >= alunos.length) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-    
-    void adicionarAlunoPorPosicao(Aluno a, int pos){
-        if(validarPosicaoAdicionarAluno(pos)){
+
+    void adicionarAlunoPorPosicao(Aluno a, int pos) {
+        if (validarPosicaoAdicionarAluno(pos)) {
             //continuidade do método
             //System.out.println("OK! Pronto para inserir");
-            
-            for(int i=qtdAlunosLista;i>pos;i--){
-                alunos[i]=alunos[i-1];
+
+            for (int i = qtdAlunosLista; i > pos; i--) {
+                alunos[i] = alunos[i - 1];
             }
-            alunos[pos]=a;
+            alunos[pos] = a;
             qtdAlunosLista++;
-            
-        }else{           
+
+        } else {
             throw new IllegalArgumentException("Posição inválida!");
         }
     }
-    
-    boolean validarPosicaoRemoverAluno(int pos){
-        if(pos >= 0 && pos < qtdAlunosLista - 1){
+
+    boolean validarPosicaoRemoverAluno(int pos) {
+        if (pos >= 0 || pos < qtdAlunosLista - 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-    void removerAlunoPorPosicao(int pos){
-        if(validarPosicaoRemoverAluno(pos)){
-           //dar continuidade na remoção do aluno 
-           //1-laço de repetição
-           
-           //2-anular última posição da iteração
-           
-        }else{
-           throw new IllegalArgumentException("Posição inválida!"); 
+
+    void removerAlunoPorPosicao(int pos) {
+        if (validarPosicaoRemoverAluno(pos)) {
+            //dar continuidade na remoção do aluno 
+            //1-laço de repetição
+            
+            for (int i = pos; i < qtdAlunosLista - 1; i++) {
+                alunos[i] = alunos[i + 1];
+            }
+            //2-anular última posição da iteração
+            alunos[qtdAlunosLista - 1] = null;
+            //3-decrementar qtd de alunos na lista
+            qtdAlunosLista--;
+        } else {
+            throw new IllegalArgumentException("Posição inválida!");
         }
     }
 
@@ -123,7 +128,7 @@ public class Vetor {
         //v.imprimirLista();
         v.inserirFimListaV2(a1);
         v.inserirFimListaV2(a2);
-        
+
         v.imprimirV2();
         /*
         v.qtdElementosLista();
@@ -132,7 +137,7 @@ public class Vetor {
         }else{
             System.out.println("Aluno não existe!");
         }
-        */
+         */
         System.out.println("======");
         /*
         try {
@@ -140,11 +145,27 @@ public class Vetor {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        */
-        
+         */
+
         v.adicionarAlunoPorPosicao(a3, 1);
         v.imprimirV2();
+        System.out.println("=========");
+
+        v.removerAlunoPorPosicao(0);
+        v.imprimirV2();
+        System.out.println("=========");
+        v.removerAlunoPorPosicao(0);
+        v.imprimirV2();
+        System.out.println("=========");
         
+        try {
+            v.removerAlunoPorPosicao(0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        v.imprimirV2();
     }
 
 }
