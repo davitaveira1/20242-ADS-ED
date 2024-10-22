@@ -93,6 +93,26 @@ public class Vetor {
             throw new IllegalArgumentException("Posição inválida!");
         }
     }
+    
+    boolean validarPosicaoRemoverAluno(int pos){
+        if(pos >= 0 && pos < qtdAlunosLista - 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    void removerAlunoPorPosicao(Aluno a,int pos){
+        if(validarPosicaoRemoverAluno(pos)){
+           //dar continuidade na remoção do aluno 
+           //1-laço de repetição
+           
+           //2-anular última posição da iteração
+           
+        }else{
+           throw new IllegalArgumentException("Posição inválida!"); 
+        }
+    }
 
     public static void main(String[] args) {
         Vetor v = new Vetor();
