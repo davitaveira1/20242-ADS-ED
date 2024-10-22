@@ -102,7 +102,7 @@ public class Vetor {
         }
     }
     
-    void removerAlunoPorPosicao(Aluno a,int pos){
+    void removerAlunoPorPosicao(int pos){
         if(validarPosicaoRemoverAluno(pos)){
            //dar continuidade na remoção do aluno 
            //1-laço de repetição
