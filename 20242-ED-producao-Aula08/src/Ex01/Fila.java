@@ -21,21 +21,21 @@ public class Fila {
         fila.add(new Cliente("lucas"));
         fila.add(new Cliente("Marcos"));
 
-        System.out.println("/////////IMPRESSÃO DA LISTA/////////");
+        System.out.println("/////////IMPRESSÃO DA FILA/////////");
         for(Cliente c : fila){
             System.out.println(c.nome);
         }
-        System.out.println("/////////FIM DA IMPRESSÃO DA LISTA/////////");
+        System.out.println("/////////FIM DA IMPRESSÃO DA FILA/////////");
 
         System.out.println("Próximo cliente a ser atendido: " + fila.peek().nome);
 
         System.out.println("Cliente atendido: " + fila.remove().nome);
 
-        System.out.println("/////////IMPRESSÃO DA LISTA/////////");
+        System.out.println("/////////IMPRESSÃO DA FILA/////////");
         for(Cliente c : fila){
             System.out.println(c.nome);
         }
-        System.out.println("/////////FIM DA IMPRESSÃO DA LISTA/////////");
+        System.out.println("/////////FIM DA IMPRESSÃO DA FILA/////////");
 
     }
 
